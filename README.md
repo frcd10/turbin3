@@ -1,1 +1,3 @@
-This repo will be used as async pre builders turbin3 Q12026
+This repo will be used in turbin3 Q1 26 Structured Pre-Builder
+
+1st excersise - guessing game
