@@ -10,6 +10,13 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TS_PROJECT="$ROOT_DIR/solana-starter/ts"
 TASK_FILE="$ROOT_DIR/$1"
 
+set -a
+if [[ -f "$TS_PROJECT/.env" ]]; then
+  source "$TS_PROJECT/.env"
+fi
+set +a
+
 NODE_PATH="$TS_PROJECT/node_modules" \
 TS_NODE_PROJECT="$TS_PROJECT/tsconfig.json" \
+DOTENV_CONFIG_PATH="$TS_PROJECT/.env" \
 node -r "$TS_PROJECT/node_modules/ts-node/register/transpile-only" "$TASK_FILE"
